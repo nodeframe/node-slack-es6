@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/slack.js"],"names":["Slack"],"mappings":";;;;;;;;IAAaA,K,WAAAA,K","file":"slack.js","sourcesContent":["export class Slack {\n\n}"]}
