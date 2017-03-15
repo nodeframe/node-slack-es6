@@ -1,6 +1,6 @@
 {
   "name": "node-slack-es6",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Node.js Slack masseging model written all in ES6!",
   "main": "build/slack.js",
   "repository": {

@@ -30,7 +30,7 @@ export class Slack {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: body
+      body: this._getStringifyData(body)
     })
   }
 
