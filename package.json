@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A Node.js Slack masseging model written all in ES6!",
   "main": "build/slack.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodeframe/node-slack-es6.git"
+  },
   "scripts": {
     "build": "rm -rf build/** && node_modules/.bin/babel src/ -d build -s",
     "test": "NODE_ENV=test node_modules/.bin/mocha --require source-map-support/register --compilers js:babel-core/register --recursive"
