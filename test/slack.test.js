@@ -116,11 +116,11 @@ describe('Node Slack Test', function () {
         })
         const error = new Error('MongoDB connection error')
         const service  = 'APPLICATION_SERVICE'
-        sl.mongooseOnError(service, error, function(res){
+        sl.mongooseOnError(service, function(res){
           expect(res.status).to.equal(200)
           expect(res.statusText).to.equal('OK')
           done()      
-        })
+        }, error)
       })
 
       it('should be able to not send to slack when fetch slack error', (done) => {   
@@ -131,10 +131,10 @@ describe('Node Slack Test', function () {
         })
         const error = new Error('MongoDB connection error')
         const service  = 'APPLICATION_SERVICE'
-        sl.mongooseOnError(service, error, function(res){
+        sl.mongooseOnError(service, function(res){
           expect(res.name).to.equal('FetchError')
           done()      
-        })
+        }, error)
       })
     })
   })
