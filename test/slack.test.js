@@ -105,5 +105,38 @@ describe('Node Slack Test', function () {
           .should.be.fulfilled
       })
     })
+
+    context('#mongooseOnError', function() {
+      this.timeout(3000)
+      it('should be able to send to slack', (done) => {
+        let sl = new Slack({
+          webhook_url: 'https://slack.com/api/api.test',
+          username: 'john_doe',
+          channel: 'test',
+        })
+        const error = new Error('MongoDB connection error')
+        const service  = 'APPLICATION_SERVICE'
+        sl.mongooseOnError(service, error, function(res){
+          expect(res.status).to.equal(200)
+          expect(res.statusText).to.equal('OK')
+          done()      
+        })
+      })
+
+      it('should be able to not send to slack when fetch slack error', (done) => {
+        
+        let sl = new Slack({
+          webhook_url: 'http://test.hook',
+          username: 'john_doe',
+          channel: 'test',
+        })
+        const error = new Error('MongoDB connection error')
+        const service  = 'APPLICATION_SERVICE'
+        sl.mongooseOnError(service, error, function(res){
+          expect(res.name).to.equal('FetchError')
+          done()      
+        })
+      })
+    })
   })
 })

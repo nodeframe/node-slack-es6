@@ -43,4 +43,21 @@ export class Slack {
     }
     return this._fetch(this.config.webhook_url, data)
   }
+
+  async mongooseOnError(service, error, callback) {
+    try {
+      const result = await this.send({
+        text: `*${service}* MongoDB connection error`,
+        "attachments": [
+          {
+            "title" : `${error}`,
+            "color" : "danger",
+          }
+        ]
+      })
+      callback(result)
+    } catch(e) {
+      callback(e)
+    }
+  }
 }
