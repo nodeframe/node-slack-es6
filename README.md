@@ -36,3 +36,12 @@ so to grab your response just to the promise chain
     sl.send({..})
       .then(() => {// for success})
       .catch((e) => {// for error exception})
+
+
+Middleware mongooes error is send to slack
+
+    const service = 'APPLICAITON-SERVICE'
+    const error = new Error()
+    const callback = function(){}
+    sl.mongooseOnError(service, error, callback)
+

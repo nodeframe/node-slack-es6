@@ -123,8 +123,7 @@ describe('Node Slack Test', function () {
         })
       })
 
-      it('should be able to not send to slack when fetch slack error', (done) => {
-        
+      it('should be able to not send to slack when fetch slack error', (done) => {   
         let sl = new Slack({
           webhook_url: 'http://test.hook',
           username: 'john_doe',
